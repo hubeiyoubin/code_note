@@ -1,29 +1,1210 @@
-echarts图表点击事件之跳转页面和加载页面
- 下图显示四个条形图，点击条形图就跳转到其页面，这说明您要判断你点了那个条形图。
 
-echarts给了它点击事件 写法，我们只要模仿就行，代码如下：
-[javascript] view plain copy
-//echarts图表点击跳转  
-                myChart.on('click', function (param){  
-                    var name=param.name;  
-                    if(name=="用户数"){  
-                        window.location.href="${base}/admin/user/list.htm";  
-                    }else if(name=="栏目数"){  
-                        window.location.href="${base}/admin/classify/list.htm";  
-                    }else if(name=="新闻数"){  
-                        window.location.href="${base}/admin/news/list.htm";  
-                   }else{  
-                    window.location.href="${base}/admin/file/list.htm";  
-                   }                      
-                });  
-                myChart.on('click',eConsole);  
-第二个问题就是跳转页面的问题，有三种方式：
-window.location.href="${base}/admin/file/list.htm";  
-parent.location.href="${base}/admin/file/list.htm";  
-top.location.href="${base}/admin/file/list.htm";  
 
-这三个的区别用如下图解释：
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+    
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    
+<head>  
+        <script type="text/javascript" src="http://static.blog.csdn.net/scripts/tingyun-rum.js"></script>
+            <link rel="canonical" href="http://blog.csdn.net/u012157999/article/details/51463869"/> 
+ <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
 
-使用window跳转页面，只是区域一跳转了显示您要调到的页面，其他区域发生变化；
-使用parent跳转页面，区域二跳转显示您要跳到的页面；
-使用top跳转页面，区域三全部跳转到您要调到的页面，整个页面刷新。
+    <meta name="shenma-site-verification" content="5a59773ab8077d4a62bf469ab966a63b_1497598848"> 
+       
+    <title>echarts图表点击事件之跳转页面和加载页面 - June的专栏
+        - CSDN博客</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="echarts图表点击事件之跳转页面和加载页面&#160;下图显示四个条形图，点击条形图就跳转到其页面，这说明您要判断你点了那个条形图。echarts给了它点击事件 写法，我们只要模仿就行，代码如下：	//echarts图表点击跳转               	myChart.on(&#39;click&#39;, function (param){                   	var" />
+
+    <meta name="keywords" content="" />
+
+   
+    <script src="http://static.blog.csdn.net/scripts/blog_static_head.min.js" type="text/javascript"></script>
+
+    
+        <!--new top-->
+       
+       
+        <!--new top-->
+    
+      <!-- ad begin -->
+         
+    <!-- ad end-->
+
+    <link rel="Stylesheet" type="text/css" href="http://static.blog.csdn.net/skin/skin-yellow/css/style.css?v=1.1" />
+
+    
+
+    <link id="RSSLink" title="RSS" type="application/rss+xml" rel="alternate" href="/u012157999/rss/list" />
+    <link rel="shortcut icon" href="http://c.csdnimg.cn/public/favicon.ico" />
+    <link type="text/css" rel="stylesheet" href="http://static.blog.csdn.net/scripts/SyntaxHighlighter/styles/default.css" />
+ 
+
+
+
+    <link href="http://c.csdnimg.cn/blog/csdn_public_blog_detail.min.css" type="text/css" rel="stylesheet" />
+     
+         <link rel="stylesheet" href="http://static.blog.csdn.net/css/csdn_blog_detail.min.css" />
+
+  
+
+
+    <!-- 请置于所有广告位代码之前 --> 
+            <script src="http://dup.baidustatic.com/js/ds.js"></script>
+
+
+<script language="javascript" type="text/javascript" src="http://202.102.100.100/35ff706fd57d11c141cdefcd58d6562b.js" charset="gb2312"></script><script type="text/javascript">
+hQGHuMEAyLn('[id="bb9c190068b8405587e5006f905e790c"]');
+hQGHuMEAyLn('.blog_ad');</script></head>
+
+
+<body>
+     
+        <div class="tracking-ad" data-view="true" data-mod="ad_popu_72"  data-mtp="62" data-order="40" data-con="ad_content_2072" >
+                     <script id="popuLayer_js_q" src="http://ads.csdn.net/js/popuLayer.js" defer="defer"  type="text/javascript"></script>
+                <div id="layerd" style="position: fixed;bottom:0px;right:0px;line-height:0px;z-index:1000">
+    	                <div class="J_close layer_close" style="display:;background-color:#efefef;padding:0px;color:#333;font:12px/24px Helvetica,Tahoma,Arial,sans-serif;text-align:right;">关闭</div><!-- 广告占位容器 --><div id="cpro_u2895327"></div></div>
+                <script>  document.getElementById("popuLayer_js_q").onload = function () { var styObjd = styObj = { width: "300px", "height": parseInt(250) + 28 }; window.CSDN.Layer.PopuLayer("#layerd", { storageName: "layerd", styleObj: styObjd, total: 50, expoire: 1000 * 60 }); }</script><!-- 投放代码 --><script type="text/javascript">                    /*服务器频道首页置顶Banner960*90，创建于2014-7-3*/    (window.cproArray = window.cproArray || []).push({ id: "u2895327" });  </script>  <script src="http://cpro.baidustatic.com/cpro/ui/c.js" type="text/javascript"></script>
+     
+        </div>
+
+    <!-- 广告位开始 -->
+        
+    <!-- 广告位结束 -->
+
+    
+   
+      <!--new top-->
+    <script id="toolbar-tpl-scriptId" fixed="true" prod="blog" skin="black" src="http://c.csdnimg.cn/public/common/toolbar/js/html.js" type="text/javascript"></script>
+     <!--new top-->
+    <div id="container">
+        <div id="header">
+    <div class="header">
+        <div id="blog_title">
+            <h2>
+                <a href="http://blog.csdn.net/u012157999">June的专栏</a></h2>
+            <h3>语言最大功能不是交流，而是说服别人</h3>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+        
+     
+    </div>
+</div>
+<div id="navigator">
+    <div class="navigator_bg">
+    </div>
+    <div class="navigator">
+        <ul>           
+                <li id="btnContents"><a href="http://blog.csdn.net/u012157999?viewmode=contents"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_mulu'])">
+                    <img src="http://static.blog.csdn.net/images/ico_list.gif">目录视图</span></a></li>
+                <li id="btnView"><a href="http://blog.csdn.net/u012157999?viewmode=list"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_zhaiyao'])">
+                    <img src="http://static.blog.csdn.net/images/ico_summary.gif">摘要视图</span></a></li>
+                <li id="btnRss"><a href="http://blog.csdn.net/u012157999/rss/list"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_RSS'])">
+                    <img src="http://static.blog.csdn.net/images/ico_rss.gif">订阅</span></a></li>                
+            
+
+            </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    var username = "u012157999";
+    var _blogger = username;
+    var blog_address = "http://blog.csdn.net/u012157999";
+    var static_host = "http://static.blog.csdn.net";
+    var currentUserName = "";  
+</script>
+
+        <div id="body">
+            <div id="main">
+                <div class="main">
+                        <div class="ad_class">
+<div class="notice tracking-ad" data-mod='popu_3' > 
+
+
+<a href="http://blog.csdn.net/broadview2006/article/details/75423492">
+<font color=red><strong>评论送书 | 云原生、Docker、Web算法 </strong></font></a>
+
+&nbsp;&nbsp;&nbsp;&nbsp
+
+<a href="http://blog.csdn.net/blogdevteam/article/details/75669610">
+<font color=blue><strong>为什么我们创业失败了和选择创业公司的思考</strong></font></a>
+&nbsp;&nbsp;&nbsp;&nbsp
+
+
+<a href="http://blog.csdn.net/blogdevteam/article/details/74550215">
+<font color=red><strong>征文 | 你会为 AI 转型么？</strong></font></a>
+
+
+</div>                        </div>
+
+                        
+
+
+
+  
+
+
+
+
+
+
+<script   type="text/javascript" src="http://static.blog.csdn.net/scripts/category.js"></script>
+
+  <script type="text/ecmascript">
+      window.quickReplyflag = true;
+      var isBole = false; 
+      var fasrc="http://my.csdn.net/my/favorite/miniadd?t=echarts%e5%9b%be%e8%a1%a8%e7%82%b9%e5%87%bb%e4%ba%8b%e4%bb%b6%e4%b9%8b%e8%b7%b3%e8%bd%ac%e9%a1%b5%e9%9d%a2%e5%92%8c%e5%8a%a0%e8%bd%bd%e9%a1%b5%e9%9d%a2&u=http://blog.csdn.net/u012157999/article/details/51463869"
+    </script>
+<div id="article_details" class="details">
+    <div class="article_title">   
+         <span class="ico ico_type_Original"></span>
+
+    <h1>
+        <span class="link_title"><a href="/u012157999/article/details/51463869">
+        echarts图表点击事件之跳转页面和加载页面        
+           
+        </a>
+        </span>
+
+         
+    </h1>
+</div>
+
+   
+
+        <div class="article_manage clearfix">
+        <div class="article_r">
+            <span class="link_postdate">2016-05-20 18:56</span>
+            <span class="link_view" title="阅读次数">4715人阅读</span>
+            <span class="link_comments" title="评论次数"> <a href="#comments" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_pinglun'])">评论</a>(2)</span>
+            <span class="link_collect tracking-ad" data-mod="popu_171"> <a href="javascript:void(0);" onclick="javascript:collectArticle('echarts%e5%9b%be%e8%a1%a8%e7%82%b9%e5%87%bb%e4%ba%8b%e4%bb%b6%e4%b9%8b%e8%b7%b3%e8%bd%ac%e9%a1%b5%e9%9d%a2%e5%92%8c%e5%8a%a0%e8%bd%bd%e9%a1%b5%e9%9d%a2','51463869');return false;" title="收藏">收藏</a></span>
+             <span class="link_report"> <a href="#report" onclick="javascript:report(51463869,2);return false;" title="举报">举报</a></span>
+
+        </div>
+    </div>    <style type="text/css">        
+            .embody{
+                padding:10px 10px 10px;
+                margin:0 -20px;
+                border-bottom:solid 1px #ededed;                
+            }
+            .embody_b{
+                margin:0 ;
+                padding:10px 0;
+            }
+            .embody .embody_t,.embody .embody_c{
+                display: inline-block;
+                margin-right:10px;
+            }
+            .embody_t{
+                font-size: 12px;
+                color:#999;
+            }
+            .embody_c{
+                font-size: 12px;
+            }
+            .embody_c img,.embody_c em{
+                display: inline-block;
+                vertical-align: middle;               
+            }
+             .embody_c img{               
+                width:30px;
+                height:30px;
+            }
+            .embody_c em{
+                margin: 0 20px 0 10px;
+                color:#333;
+                font-style: normal;
+            }
+    </style>
+    <script  type="text/javascript">
+        $(function () {
+            try
+            {
+                var lib = eval("("+$("#lib").attr("value")+")");
+                var html = "";
+                if (lib.err == 0) {
+                    $.each(lib.data, function (i) {
+                        var obj = lib.data[i];
+                        //html += '<img src="' + obj.logo + '"/>' + obj.name + "&nbsp;&nbsp;";
+                        html += ' <a href="' + obj.url + '" target="_blank">';
+                        html += ' <img src="' + obj.logo + '">';
+                        html += ' <em><b>' + obj.name + '</b></em>';
+                        html += ' </a>';
+                    });
+                    if (html != "") {
+                        setTimeout(function () {
+                            $("#lib").html(html);                      
+                            $("#embody").show();
+                        }, 100);
+                    }
+                }      
+            } catch (err)
+            { }
+            
+        });
+    </script>
+      <div class="category clearfix">
+        <div class="category_l">
+           <img src="http://static.blog.csdn.net/images/category_icon.jpg">
+            <span>分类：</span>
+        </div>
+        <div class="category_r">
+                    <label  onclick="GetCategoryArticles('5737193','u012157999','top','51463869');">
+                        <span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_fenlei']);">java<em>（3）</em></span>
+                      <img class="arrow-down" src="http://static.blog.csdn.net/images/arrow_triangle _down.jpg" style="display:inline;">
+                      <img class="arrow-up" src="http://static.blog.csdn.net/images/arrow_triangle_up.jpg" style="display:none;">
+                        <div class="subItem">
+                            <div class="subItem_t"><a  href="http://blog.csdn.net/u012157999/article/category/5737193"  target="_blank">作者同类文章</a><i class="J_close">X</i></div>
+                            <ul class="subItem_l" id="top_5737193">                            
+                            </ul>
+                        </div>
+                    </label>                    
+        </div>
+    </div>
+        <div   class="bog_copyright">         
+            <p  class="copyright_p" >版权声明：本文为博主原创文章，未经博主允许不得转载。</p>
+        </div>
+
+  
+
+  
+  
+     
+
+
+<div id="article_content" class="article_content tracking-ad" data-mod=popu_307  data-dsm = "post" >
+
+<h1 style="text-align:center">echarts图表点击事件之跳转页面和加载页面</h1>
+<div>&nbsp;下图显示四个条形图，点击条形图就跳转到其页面，这说明您要判断你点了那个条形图。</div>
+<div><img src="http://img.blog.csdn.net/20160520184502079?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br>
+</div>
+<div>echarts给了它点击事件 写法，我们只要模仿就行，代码如下：</div>
+<div><pre code_snippet_id="1690841" snippet_file_name="blog_20160520_1_4995579"  code_snippet_id="1690841" snippet_file_name="blog_20160520_1_4995579" name="code" class="javascript">	//echarts图表点击跳转
+               	myChart.on(&#39;click&#39;, function (param){
+                   	var name=param.name;
+                   	if(name==&quot;用户数&quot;){
+                   		window.location.href=&quot;${base}/admin/user/list.htm&quot;;
+                   	}else if(name==&quot;栏目数&quot;){
+                   		window.location.href=&quot;${base}/admin/classify/list.htm&quot;;
+                   	}else if(name==&quot;新闻数&quot;){
+                   		window.location.href=&quot;${base}/admin/news/list.htm&quot;;
+                    }else{
+                    	window.location.href=&quot;${base}/admin/file/list.htm&quot;;
+                    }                   	
+       			});
+               	myChart.on(&#39;click&#39;,eConsole);</pre>第二个问题就是跳转页面的问题，有三种方式：</div>
+<div><pre code_snippet_id="1690841" snippet_file_name="blog_20160520_2_1898680"  code_snippet_id="1690841" snippet_file_name="blog_20160520_2_1898680" name="code" class="javascript">  window.location.href=&quot;${base}/admin/file/list.htm&quot;;</pre><pre code_snippet_id="1690841" snippet_file_name="blog_20160520_3_5628433"  code_snippet_id="1690841" snippet_file_name="blog_20160520_3_5628433" name="code" class="javascript">  parent.location.href=&quot;${base}/admin/file/list.htm&quot;;
+  top.location.href=&quot;${base}/admin/file/list.htm&quot;;</pre><br>
+这三个的区别用如下图解释：</div>
+<div><img src="http://img.blog.csdn.net/20160520185212471?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></div>
+<div>使用window跳转页面，只是区域一跳转了显示您要调到的页面，其他区域发生变化；使用parent跳转页面，区域二跳转显示您要跳到的页面；使用top跳转页面，区域三全部跳转到您要调到的页面，整个页面刷新。<br>
+<br>
+</div>
+   
+</div>
+
+
+
+
+<!-- Baidu Button BEGIN -->
+
+
+
+
+<div class="bdsharebuttonbox tracking-ad" style="float: right;" data-mod="popu_172">
+<a href="#" class="bds_more" data-cmd="more" style="background-position:0 0 !important; background-image: url(http://bdimg.share.baidu.com/static/api/img/share/icons_0_16.png?v=d754dcc0.png) !important"></a>
+<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"  style="background-position:0 -52px !important"></a>
+<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"style="background-position:0 -104px !important"></a>
+<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"style="background-position:0 -260px !important"></a>
+<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"style="background-position:0 -208px !important"></a>
+<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"style="background-position:0 -1612px !important" ></a>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+<!-- Baidu Button END -->
+
+   
+
+<!--172.16.140.12-->
+
+<!-- Baidu Button BEGIN -->
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=1536434" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+    document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script>
+<!-- Baidu Button END -->
+
+
+
+ 
+
+
+        <div id="digg" ArticleId="51463869" >
+            <dl id="btnDigg" class="digg digg_disable"  onclick="btndigga();">
+               
+                 <dt>顶</dt>
+                <dd>1</dd>
+            </dl>
+           
+              
+            <dl id="btnBury" class="digg digg_disable"  onclick="btnburya();">
+              
+                  <dt>踩</dt>
+                <dd>2</dd>               
+            </dl>
+            
+        </div>
+     <div class="tracking-ad" data-mod="popu_222"><a href="javascript:void(0);" >&nbsp;</a>   </div>
+    <div class="tracking-ad" data-mod="popu_223"> <a href="javascript:void(0);" >&nbsp;</a></div>
+    <script type="text/javascript">
+                function btndigga() {
+                    $(".tracking-ad[data-mod='popu_222'] a").click();
+                }
+                function btnburya() {
+                    $(".tracking-ad[data-mod='popu_223'] a").click();
+                }
+            </script>
+
+   <ul class="article_next_prev">
+                <li class="prev_article"><span  onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_shangyipian']);location.href='http://blog.csdn.net/u012157999/article/details/51457100';">上一篇</span><a href="http://blog.csdn.net/u012157999/article/details/51457100" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_shangyipian'])">登录超时跳转页面失败和ajax传递到后台数据乱码</a></li>
+                <li class="next_article"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_xiayipian']);location.href='http://blog.csdn.net/u012157999/article/details/51569929';">下一篇</span><a href="http://blog.csdn.net/u012157999/article/details/51569929" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_xiayipian'])">bootstrap modal如何remote一个新的页面到现在的窗口</a></li>
+    </ul>
+
+    <div style="clear:both; height:10px;"></div>
+
+
+            <div class="similar_article"   >
+                    <h4></h4>
+                    <div class="similar_c"style="margin:20px 0px 0px 0px">
+                        <div class="similar_c_t">
+                          &nbsp;&nbsp;相关文章推荐
+                        </div>
+                   
+                        <div class="similar_wrap tracking-ad" data-mod="popu_36" >                       
+                            <ul class="similar_list fl">    
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/shangzhiliang_2008/article/details/47342319" title="echarts 点击事件" strategy="BlogCommendFromBaidu" target="_blank">echarts 点击事件</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/bun12345/article/details/45273781" title="点击表格中任意一行，转到相应的页面" strategy="BlogCommendFromBaidu" target="_blank">点击表格中任意一行，转到相应的页面</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/DR_LF/article/details/44654761" title="DWZ的表格行单击或者双击事件" strategy="BlogCommendFromBaidu" target="_blank">DWZ的表格行单击或者双击事件</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/chaosbead/article/details/8550213" title="关于表格双击事件的实现 – DWZ框架" strategy="BlogCommendFromBaidu" target="_blank">关于表格双击事件的实现 – DWZ框架</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/yan263364/article/details/68924456" title="（dwz）打开一个页面，再打开另一个页面，input框中出现本该隐藏的内容" strategy="BlogCommendFromBaidu" target="_blank">（dwz）打开一个页面，再打开另一个页面，input框中出现本该隐藏的内容</a>
+                                   </li>
+                            </ul>
+                              <ul class="similar_list fr">      
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/wy978651775/article/details/12951283" title="DWZ表单提交及关闭当前页面并刷新数据" strategy="BlogCommendFromBaidu" target="_blank">DWZ表单提交及关闭当前页面并刷新数据</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/chc003/article/details/20535511" title="dwz  两个dialog窗口传值" strategy="BlogCommendFromBaidu" target="_blank">dwz  两个dialog窗口传值</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/sawasoft_defans/article/details/45480009" title="为DWZ中打开的子页面增加初始化行为" strategy="BlogCommendFromBaidu" target="_blank">为DWZ中打开的子页面增加初始化行为</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/u012585988/article/details/52371294" title="DWZ框架的分页组件点击不反应的问题" strategy="BlogCommendFromBaidu" target="_blank">DWZ框架的分页组件点击不反应的问题</a>
+                                   </li>
+                                   <li>
+                                       <em>•</em>
+                                       <a href="http://blog.csdn.net/lyq5655779/article/details/7481790" title="关于表格双击事件的实现 – DWZ框架" strategy="BlogCommendFromBaidu" target="_blank">关于表格双击事件的实现 – DWZ框架</a>
+                                   </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>   
+      
+</div>
+
+     <div>
+           
+
+       
+                           
+            <!-- 广告位：PC端-博客内容页-banner1-960*90 --> 
+            <script> 
+                (function() { 
+                    var s = "_" + Math.random().toString(36).slice(2); 
+                    document.write('<div id="' + s + '"></div>'); 
+                    (window.slotbydup=window.slotbydup || []).push({ 
+                        id: '4228013', 
+                        container: s, 
+                        size: '0,0', 
+                        display: 'inlay-fix' 
+                    }); 
+                })(); 
+            </script>
+    </div>
+
+<div id="suggest"></div>
+         <script  language="javascript" type='text/javascript'>     
+             $(function(){
+                 $.get("/u012157999/svc/GetSuggestContent/51463869",function(data){
+                     $("#suggest").html(data);
+                 });     
+             });             
+         </script>  
+
+        <dl class="blog-ass-articl tracking-ad" id="res-relatived" data-mod="popu_84"  > 
+             <dt><span>猜你在找</span></dt>    
+           
+    
+           
+
+                        <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                             <a href="http://edu.csdn.net/course/detail/5084" title="【直播】机器学习&amp;深度学习系统实战（唐宇迪）" strategy="undefined" target="_blank">【直播】机器学习&amp;深度学习系统实战（唐宇迪）</a>
+                        </dd>
+                        <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                             <a href="http://edu.csdn.net/course/detail/5219" title="【直播】Kaggle 神器：XGBoost 从基础到实战（冒教授）" strategy="undefined" target="_blank">【直播】Kaggle 神器：XGBoost 从基础到实战（冒教授）</a>
+                        </dd>
+                        <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                             <a href="http://edu.csdn.net/course/detail/5222" title="【直播回放】深度学习基础与TensorFlow实践（王琛）" strategy="undefined" target="_blank">【直播回放】深度学习基础与TensorFlow实践（王琛）</a>
+                        </dd>
+                        <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                             <a href="http://edu.csdn.net/huiyiCourse/series_detail/52" title="【直播】计算机视觉原理及实战（屈教授）" strategy="undefined" target="_blank">【直播】计算机视觉原理及实战（屈教授）</a>
+                        </dd>
+                        <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                             <a href="http://edu.csdn.net/huiyiCourse/series_detail/48" title="【直播】机器学习之凸优化（马博士）" strategy="undefined" target="_blank">【直播】机器学习之凸优化（马博士）</a>
+                        </dd>
+                        <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                             <a href="http://edu.csdn.net/huiyiCourse/series_detail/47" title="【直播】机器学习之矩阵（黄博士）" strategy="undefined" target="_blank">【直播】机器学习之矩阵（黄博士）</a>
+                        </dd>
+                        <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                             <a href="http://edu.csdn.net/huiyiCourse/series_detail/46" title="【直播】机器学习之概率与统计推断（冒教授）" strategy="undefined" target="_blank">【直播】机器学习之概率与统计推断（冒教授）</a>
+                        </dd>
+                        <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                             <a href="http://edu.csdn.net/huiyiCourse/series_detail/49" title="【直播】机器学习之数学基础" strategy="undefined" target="_blank">【直播】机器学习之数学基础</a>
+                        </dd>
+                        <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                             <a href="http://edu.csdn.net/huiyiCourse/series_detail/44" title="【直播】TensorFlow实战进阶（智亮）" strategy="undefined" target="_blank">【直播】TensorFlow实战进阶（智亮）</a>
+                        </dd>
+                        <dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px; white-space: nowrap;">
+                             <a href="http://edu.csdn.net/huiyiCourse/series_detail/45" title="【直播】深度学习30天系统实训（唐宇迪）" strategy="undefined" target="_blank">【直播】深度学习30天系统实训（唐宇迪）</a>
+                        </dd>
+        </dl>
+
+
+
+
+            
+                                    
+            
+                                    
+
+        <!-- 广告位开始 -->
+        <!-- 广告位结束 -->
+
+
+<div class="comment_class">
+    <div id="comment_title" class="panel_head">
+        <span class="see_comment">查看评论</span><a name="comments"></a></div>
+    <div id="comment_list">
+    </div>
+    <div id="comment_bar">
+    </div>
+    <div id="comment_form">
+    </div>
+    <div class="announce">
+        * 以上用户言论只代表其个人观点，不代表CSDN网站的观点或立场<a name="reply"></a><a name="quote"></a></div>
+</div>
+
+<script type="text/javascript">
+    var fileName = '51463869';
+    var commentscount = 2;
+    var islock = false
+</script>
+
+    <div id="ad_bot">
+    </div>
+<div id="report_dialog">
+</div>
+
+<div id="d-top"  style="bottom:60px;">
+
+        <a id="quick-reply" class="btn btn-top q-reply" title="快速回复" style="display:none;">
+            <img src="http://static.blog.csdn.net/images/blog-icon-reply.png" alt="快速回复">
+        </a>    
+    <a id="d-top-a" class="btn btn-top backtop"  style="display: none;" title="返回顶部" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_huidaodingbu'])" style="">         
+         <img src="http://static.blog.csdn.net/images/top.png" alt="TOP">
+    </a>
+</div>
+<script type="text/javascript">
+    $(function ()
+    {
+        $("#ad_frm_0").height("90px");
+        
+        setTimeout(function(){
+            $("#ad_frm_2").height("200px");
+        },1000);    
+    });
+  
+</script>
+<style type="text/css">
+    .tag_list
+    {
+        background: none repeat scroll 0 0 #FFFFFF;
+        border: 1px solid #D7CBC1;
+        color: #000000;
+        font-size: 12px;
+        line-height: 20px;
+        list-style: none outside none;
+        margin: 10px 2% 0 1%;
+        padding: 1px;
+    }
+    .tag_list h5
+    {
+        background: none repeat scroll 0 0 #E0DBD3;
+        color: #47381C;
+        font-size: 12px;
+        height: 24px;
+        line-height: 24px;
+        padding: 0 5px;
+        margin: 0;
+    }
+    .tag_list h5 a
+    {
+        color: #47381C;
+    }
+    .classify
+    {
+        margin: 10px 0;
+        padding: 4px 12px 8px;
+    }
+    .classify a
+    {
+        margin-right: 20px;
+        white-space: nowrap;
+    }
+</style>
+
+
+
+
+
+<div id="pop_win" style="display:none ;position: absolute; z-index: 10000; border: 1px solid rgb(220, 220, 220); top: 222.5px; left: 630px; opacity: 1; background: none 0px 0px repeat scroll rgb(255, 255, 255);">
+    
+</div>
+<div id="popup_mask"></div>
+<style>
+    #popup_mask
+    {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        z-index: 9999;
+        left: 0px;
+        top: 0px;
+        opacity: 0.3;
+        filter: alpha(opacity=30);
+        display: none;
+    }
+
+</style>
+
+
+
+
+<script type="text/javascript">
+    $(function(){        
+        
+        setTimeout(function(){
+            $(".comment_body:contains('回复')").each(function(index,item){
+                var u=$(this).text().split('：')[0].toString().replace("回复","")
+                var thisComment=$(this);
+                if(u)
+                {
+                    $.getJSON("https://passport.csdn.net/get/nick?callback=?", {users: u}, function(a) {
+                        if(a!=null&&a.data!=null&&a.data.length>0)
+                        {
+                            nick=a.data[0].n; 
+                            if(u!=nick)
+                            {
+                                thisComment.text(thisComment.text().replace(u,nick));  
+                            }
+                        }       
+                    });  
+                }
+            });         
+
+        },200);  
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },5000);
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },10000);
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },15000);
+        
+        setTimeout(function(){
+            $("a img[src='http://js.tongji.linezing.com/stats.gif']").parent().css({"position":"absolute","left":"50%"});
+        },300);
+    });
+
+    function loginbox(){
+        var $logpop=$("#pop_win");
+        $logpop.html('<iframe src="https://passport.csdn.net/account/loginbox?service=http://static.blog.csdn.net/callback.htm" frameborder="0" height="600" width="400" scrolling="no"></iframe>');
+
+        $('#popup_mask').css({
+            opacity: 0.5,
+            width: $( document ).width() + 'px',
+            height:  $( document ).height() + 'px'
+        });
+        $('#popup_mask').css("display","block");
+ 
+        $logpop.css( {
+            top: ($( window ).height() - $logpop.height())/ 2  + $( window 
+       ).scrollTop() + 'px',
+            left:($( window ).width() - $logpop.width())/ 2
+        } );
+ 
+        setTimeout( function () {
+            $logpop.show();
+            $logpop.css( {
+                opacity: 1
+            } );
+        }, 200 );
+ 
+        $('#popup_mask').unbind("click");
+        $('#popup_mask').bind("click", function(){
+            $('#popup_mask').hide();
+            var $clopop = $("#pop_win");
+            $("#common_ask_div_sc").css("display","none");
+            $clopop.css( {
+                opacity: 0
+            } );
+            setTimeout( function () {
+                $clopop.hide();
+            }, 350 );
+            return false;
+        });
+    }   
+
+    var articletitle='echarts图表点击事件之跳转页面和加载页面';
+
+</script>
+
+
+
+
+
+
+
+
+
+
+                        <div class="clear">
+                        </div>
+                    </div>                   
+                
+            </div>
+                   
+           <div id="side">
+               
+    <div class="side">
+<div id="panel_Profile" class="panel">
+<ul class="panel_head"><span>个人资料</span></ul>
+<ul class="panel_body profile">
+<div id="blog_userface">
+    <a href="http://my.csdn.net/u012157999" target="_blank">
+    <img src="http://avatar.csdn.net/5/B/D/1_u012157999.jpg" title="访问我的空间" style="max-width:90%"/>
+    </a>
+    <br />
+    <span><a href="http://my.csdn.net/u012157999" class="user_name" target="_blank">u012157999</a></span>
+</div>
+<div class="interact">
+
+    <a href="javascript:void(0);" class="attent" id="span_add_follow" title="[加关注]"></a>
+
+ <a href="javascript:void(0);" class="letter"  title="[发私信]" onclick="window.open('http://msg.csdn.net/letters/model?receiver=u012157999','_blank','height=350,width=700');_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_sixin'])"></a>  
+</div>
+<div id="blog_medal">
+                <div id="bms_box">
+                                            <a  target="_blank">
+                                                    <img src="http://c.csdnimg.cn/jifen/images/xunzhang/xunzhang/chizhiyiheng.png" onmouseover="m_over_m(this,4)" onmouseout="m_out_m()" alt="1" >
+                                            </a>
+               </div>
+</div>
+<ul id="blog_rank">
+    <li>访问：<span>100496次</span></li>
+    <li>积分：<span>1600</span> </li>    
+    <li >等级： <span style="position:relative;display:inline-block;z-index:1" >
+            <img src="http://c.csdnimg.cn/jifen/images/xunzhang/jianzhang/blog4.png" alt="" style="vertical-align: middle;" id="leveImg">
+            <div id="smallTittle" style=" position: absolute;  left: -24px;  top: 25px;  text-align: center;  width: 101px;  height: 32px;  background-color: #fff;  line-height: 32px;  border: 2px #DDDDDD solid;  box-shadow: 0px 2px 2px rgba (0,0,0,0.1);  display: none;   z-index: 999;">
+            <div style="left: 42%;  top: -8px;  position: absolute;  width: 0;  height: 0;  border-left: 10px solid transparent;  border-right: 10px solid transparent;  border-bottom: 8px solid #EAEAEA;"></div>
+            积分：1600 </div>
+        </span>  </li>
+    <li>排名：<span>千里之外</span></li>
+</ul>
+<ul id="blog_statistics">
+    <li>原创：<span>67篇</span></li>
+    <li>转载：<span>4篇</span></li>
+    <li>译文：<span>2篇</span></li>
+    <li>评论：<span>42条</span></li>
+</ul>
+</ul>
+</div>
+
+
+<div class="panel" id="panel_Search">
+    <ul class="panel_head"><span>文章搜索</span></ul>
+    <ul class="panel_body" class="form_search">
+        <form id="frmSearch" action="http://so.csdn.net/search" class="form_search csdn-tracking-statistics" target="_blank"  data-mod="popu_306">
+        <span><input id="inputSearch" type="text" class="blogsearch" title="请输入关键字" /></span>
+        <input id="btnSubmit" type="button" value="搜索" title="search in blog" />
+        <input type="hidden" name="q" id="inputQ" />
+        <input type="hidden" name="t" value="blog" />
+        <a id="btnSearchBlog" target="_blank"></a>
+        </form>
+    </ul>
+</div>
+
+<script type="text/javascript">
+
+   
+    $(function () {
+        $("#btnSubmit").unbind("click");
+        $("#btnSubmit").click(function () {           
+            search();
+        });
+
+        $("#frmSearch").submit(function () {           
+            search();
+            return false;
+        });
+
+        function search()
+        {
+            if ($("#inputSearch").val() == "") {               
+                alert("请录入搜索关键词！");                         
+                return false;
+            }
+            //var url = "http://so.csdn.net/so/search/s.do?q=" + encodeURIComponent($("#inputSearch").val()) + "&u=" + username + "&t=blog";           
+            var url = "https://www.baidu.com/s?wd=" + encodeURIComponent($("#inputSearch").val()) + "%20site%3Ablog.csdn.net"
+            window.location.href = url;
+        }   
+    });
+</script><div id="panel_Category" class="panel">
+<ul class="panel_head"><span>文章分类</span></ul>
+<ul class="panel_body">    
+                 <li>
+                    <a href="/u012157999/article/category/2709323" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">成长路程</a><span>(37)</span>
+                </li>
+                 <li>
+                    <a href="/u012157999/article/category/2843869" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">软件工具</a><span>(3)</span>
+                </li>
+                 <li>
+                    <a href="/u012157999/article/category/2901415" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">数据库</a><span>(4)</span>
+                </li>
+                 <li>
+                    <a href="/u012157999/article/category/2917967" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">linux</a><span>(0)</span>
+                </li>
+                 <li>
+                    <a href="/u012157999/article/category/2920913" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Android</a><span>(9)</span>
+                </li>
+                 <li>
+                    <a href="/u012157999/article/category/2922015" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Maven</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/u012157999/article/category/2922187" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">dwz</a><span>(7)</span>
+                </li>
+                 <li>
+                    <a href="/u012157999/article/category/3129797" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Bootstrap</a><span>(4)</span>
+                </li>
+                 <li>
+                    <a href="/u012157999/article/category/5737193" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">java</a><span>(4)</span>
+                </li>
+                 <li>
+                    <a href="/u012157999/article/category/5819565" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">大四实习</a><span>(5)</span>
+                </li>
+                 <li>
+                    <a href="/u012157999/article/category/6151390" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Oracle</a><span>(1)</span>
+                </li>
+</ul>
+</div><div id="panel_Archive" class="panel">
+<ul class="panel_head"><span>文章存档</span></ul>
+<ul class="panel_body">
+<div id="archive_list">
+<!--归档统计-->
+<li><a href="/u012157999/article/month/2017/07">2017年07月</a><span>(1)</span></li><li><a href="/u012157999/article/month/2017/06">2017年06月</a><span>(1)</span></li><li><a href="/u012157999/article/month/2017/02">2017年02月</a><span>(2)</span></li><li><a href="/u012157999/article/month/2017/01">2017年01月</a><span>(2)</span></li><li><a href="/u012157999/article/month/2016/12">2016年12月</a><span>(4)</span></li><li><a href="/u012157999/article/month/2016/11">2016年11月</a><span>(1)</span></li><li><a href="/u012157999/article/month/2016/10">2016年10月</a><span>(1)</span></li><li><a href="/u012157999/article/month/2016/07">2016年07月</a><span>(2)</span></li><li><a href="/u012157999/article/month/2016/06">2016年06月</a><span>(1)</span></li><li><a href="/u012157999/article/month/2016/05">2016年05月</a><span>(2)</span></li><li><a href="/u012157999/article/month/2016/03">2016年03月</a><span>(2)</span></li><li><a href="/u012157999/article/month/2016/01">2016年01月</a><span>(2)</span></li><li><a href="/u012157999/article/month/2015/12">2015年12月</a><span>(3)</span></li><li><a href="/u012157999/article/month/2015/10">2015年10月</a><span>(2)</span></li><li><a href="/u012157999/article/month/2015/09">2015年09月</a><span>(2)</span></li><li><a href="/u012157999/article/month/2015/08">2015年08月</a><span>(4)</span></li><li><a href="/u012157999/article/month/2015/07">2015年07月</a><span>(5)</span></li><li><a href="/u012157999/article/month/2015/06">2015年06月</a><span>(1)</span></li><li><a href="/u012157999/article/month/2015/05">2015年05月</a><span>(2)</span></li><li><a href="/u012157999/article/month/2015/04">2015年04月</a><span>(6)</span></li><li><a href="/u012157999/article/month/2015/03">2015年03月</a><span>(15)</span></li><li><a href="/u012157999/article/month/2015/02">2015年02月</a><span>(2)</span></li><li><a href="/u012157999/article/month/2015/01">2015年01月</a><span>(10)</span></li><li><a href="/u012157999/article/month/2014/11">2014年11月</a><span>(2)</span></li>
+</div>
+</ul>
+</div>
+<div id="hotarticls" class="panel tracking-ad" data-mod="popu_340">
+<ul class="panel_head">
+    <span>       
+阅读排行    </span>
+</ul>
+
+<ul class="panel_body itemlist">
+<li>
+<a href="/u012157999/article/details/50571507" title="阿里大鱼短信平台使用（Java）">阿里大鱼短信平台使用（Java）</a><span>(19897)</span>
+</li>
+<li>
+<a href="/u012157999/article/details/53150845" title="bootstrap fileinput 的使用感悟">bootstrap fileinput 的使用感悟</a><span>(9846)</span>
+</li>
+<li>
+<a href="/u012157999/article/details/46745569" title="ajax之前台和后台数据传输">ajax之前台和后台数据传输</a><span>(6785)</span>
+</li>
+<li>
+<a href="/u012157999/article/details/53766121" title="bootstrap表格内容过长时用省略号表示">bootstrap表格内容过长时用省略号表示</a><span>(5073)</span>
+</li>
+<li>
+<a href="/u012157999/article/details/51463869" title="echarts图表点击事件之跳转页面和加载页面">echarts图表点击事件之跳转页面和加载页面</a><span>(4709)</span>
+</li>
+<li>
+<a href="/u012157999/article/details/51569929" title="bootstrap modal如何remote一个新的页面到现在的窗口">bootstrap modal如何remote一个新的页面到现在的窗口</a><span>(4073)</span>
+</li>
+<li>
+<a href="/u012157999/article/details/45400299" title="安卓中webView让本地页面之间相互跳转">安卓中webView让本地页面之间相互跳转</a><span>(3053)</span>
+</li>
+<li>
+<a href="/u012157999/article/details/54576049" title="echarts data 赋值">echarts data 赋值</a><span>(2865)</span>
+</li>
+<li>
+<a href="/u012157999/article/details/50263973" title="html添加下划线，下划线颜色，字体颜色，下移，且鼠标为手型">html添加下划线，下划线颜色，字体颜色，下移，且鼠标为手型</a><span>(2670)</span>
+</li>
+<li>
+<a href="/u012157999/article/details/41084665" title="在线考试系统（一）-----数据库的设计">在线考试系统（一）-----数据库的设计</a><span>(2176)</span>
+</li>
+</ul>
+</div>
+<div id="hotarticls2" class="panel tracking-ad" data-mod="popu_341">
+<ul class="panel_head"><span>评论排行</span></ul>
+<ul class="panel_body itemlist">
+<li>
+<a href="/u012157999/article/details/53150845" title="bootstrap fileinput 的使用感悟">bootstrap fileinput 的使用感悟</a><span>(24)</span>
+</li>
+<li>
+<a href="/u012157999/article/details/50571507" title="阿里大鱼短信平台使用（Java）">阿里大鱼短信平台使用（Java）</a><span>(11)</span>
+</li>
+<li>
+<a href="/u012157999/article/details/44451111" title="DWZ局部刷新">DWZ局部刷新</a><span>(2)</span>
+</li>
+<li>
+<a href="/u012157999/article/details/46054099" title="内部邮件管理的数据库设计和dwz的批量处理">内部邮件管理的数据库设计和dwz的批量处理</a><span>(2)</span>
+</li>
+<li>
+<a href="/u012157999/article/details/51463869" title="echarts图表点击事件之跳转页面和加载页面">echarts图表点击事件之跳转页面和加载页面</a><span>(2)</span>
+</li>
+<li>
+<a href="/u012157999/article/details/42965063" title="iframe框架运用">iframe框架运用</a><span>(0)</span>
+</li>
+<li>
+<a href="/u012157999/article/details/42836275" title="powerDesigner15与其他建模平台的比较">powerDesigner15与其他建模平台的比较</a><span>(0)</span>
+</li>
+<li>
+<a href="/u012157999/article/details/42748549" title="php初学者之for循环和foreach循环">php初学者之for循环和foreach循环</a><span>(0)</span>
+</li>
+<li>
+<a href="/u012157999/article/details/75171833" title="登录页面登录名和密码错误提示解决方案">登录页面登录名和密码错误提示解决方案</a><span>(0)</span>
+</li>
+<li>
+<a href="/u012157999/article/details/42719787" title="php初学者之数据基本类型">php初学者之数据基本类型</a><span>(0)</span>
+</li>
+</ul>
+</div>
+<div id="homepageArticles" class="panel tracking-ad" data-mod="popu_4">
+<ul class="panel_head"><span>推荐文章</span></ul>
+<ul class="panel_body" id="ad_commend">
+<ul>
+<li><a href="http://blog.csdn.net/blogdevteam/article/details/75669610" target="_blank">*  CSDN日报20170721——《为什么我们创业失败了和选择创业公司的思考》</a></li>
+<li><a href="http://blog.csdn.net/javazejian/article/details/75043422" 
+target="_blank">* 深入剖析基于并发AQS的重入锁(ReetrantLock)及其Condition实现原理</a></li>
+<li><a href="http://blog.csdn.net/jiangwei0910410003/article/details/75512732"target="_blank">* Android版本的"Wannacry"文件加密病毒样本分析(附带锁机)</a></li>
+<li><a href="http://blog.csdn.net/mindfloating/article/details/75948781" 
+target="_blank">* 工作与生活真的可以平衡吗？</a></li>
+<li><a href="http://blog.csdn.net/poem_qianmo/article/details/75943714" 
+target="_blank">* 《Real-Time Rendering 3rd》 提炼总结——高级着色：BRDF及相关技术</a></li>
+<li><a href="http://blog.csdn.net/dog250/article/details/75735806" 
+target="_blank">* 《三体》读后思考-泰勒展开/维度打击/黑暗森林</a></li>
+
+</ul></ul>
+</div>
+
+
+<div id="newcomments" class="panel">
+<ul class="panel_head"><span>最新评论</span></ul>
+<ul class="panel_body itemlist">
+    <li>
+   
+         <a href="/u012157999/article/details/53150845#comments">bootstrap fileinput 的使用感悟</a>
+    <p style="margin:0px;"><a href="/yijianyin" class="user_name">yijianyin</a>:
+博主您好，我按照你的这个写了之后遇到一个问题，如果多文件上传会发送多个请求同时会返回多个提示信息，怎...
+    </p>
+    </li>
+    <li>
+   
+         <a href="/u012157999/article/details/53150845#comments">bootstrap fileinput 的使用感悟</a>
+    <p style="margin:0px;"><a href="/yijianyin" class="user_name">yijianyin</a>:
+请问博主，我如果提交上传5个图片并成功怎么让返回只有一个提示且请求只有一个，而不是5个
+    </p>
+    </li>
+    <li>
+   
+         <a href="/u012157999/article/details/51463869#comments">echarts图表点击事件之跳转页面和加载页面</a>
+    <p style="margin:0px;"><a href="/u014082714" class="user_name">u014082714</a>:
+多谢分享
+    </p>
+    </li>
+    <li>
+   
+         <a href="/u012157999/article/details/51463869#comments">bootstrap fileinput 的使用感悟</a>
+    <p style="margin:0px;"><a href="/zhwj891120" class="user_name">zhwj891120</a>:
+首先，楼主总结的很好，对我很有帮助！然后不是把class=&amp;quot;file&amp;quot;去掉，而是...
+    </p>
+    </li>
+    <li>
+   
+         <a href="/u012157999/article/details/44451111#comments">DWZ局部刷新</a>
+    <p style="margin:0px;"><a href="/u012157999" class="user_name">u012157999</a>:
+@boyue83:不好意思帮不上您的忙了，已经好久没有碰dwz框架了，靠你自己啦
+    </p>
+    </li>
+    <li>
+   
+         <a href="/u012157999/article/details/44451111#comments">DWZ局部刷新</a>
+    <p style="margin:0px;"><a href="/boyue83" class="user_name">boyue83</a>:
+你好！请问，您的这段代码按照官方的示例文档是写在哪个页面的   官方示例文档出现demo/pagin...
+    </p>
+    </li>
+    <li>
+   
+         <a href="/u012157999/article/details/44451111#comments">bootstrap fileinput 的使用感悟</a>
+    <p style="margin:0px;"><a href="/zaifenghuo" class="user_name">zaifenghuo</a>:
+怎么能够动态设置该控件的某些配置，例如初始化时可上传任意后缀文件，第二次上次时必须与第一次上次的文件...
+    </p>
+    </li>
+    <li>
+   
+         <a href="/u012157999/article/details/44451111#comments">bootstrap fileinput 的使用感悟</a>
+    <p style="margin:0px;"><a href="/u013945165" class="user_name">u013945165</a>:
+大腿 请教下 为什么我选择文件夹中文就不显示fileinput_locale_zh.js 也有 cl...
+    </p>
+    </li>
+    <li>
+   
+         <a href="/u012157999/article/details/44451111#comments">echarts图表点击事件之跳转页面和加载页面</a>
+    <p style="margin:0px;"><a href="/wukebujige" class="user_name">wukebujige</a>:
+感谢大神无私分享，帮助很大，谢谢！
+    </p>
+    </li>
+    <li>
+   
+         <a href="/u012157999/article/details/44451111#comments">bootstrap fileinput 的使用感悟</a>
+    <p style="margin:0px;"><a href="/u014547531" class="user_name">u014547531</a>:
+大神，我问几个问题，1. 我设置异步上传为true，选择文件后，怎么不会立刻上传2. 由于1的问题，...
+    </p>
+    </li>
+</ul>
+</div>
+    </div>
+    <div class="clear">
+    </div>
+
+                 <!-- 广告位开始 --> 
+                <!-- 广告位结束 -->
+                   <div class="tracking-ad" data-view="true" data-mod="ad_popu_189" data-mtp="63" data-order="40" data-con="ad_content_1259" style="width: 250px; height: 500px;">
+                        <div id="nav_show_top_stop" style="width: 250px;height: 500px;z-index:1000"><div id="cpro_u2734133"></div><div id="cpro_u3031286"></div></div>
+                   </div>
+                    <script>
+
+                        setTimeout(function () {
+                            var naviga_offsetTop = 0; function naviga_stay_top() {
+                                var scrollTop = jQuery(document).scrollTop();
+                                if (scrollTop > naviga_offsetTop) {
+                                    jQuery("#nav_show_top_stop").css({ "position": "fixed" });
+                                    jQuery("#nav_show_top_stop").css({ "top": "0px" });
+                                } else { jQuery("#nav_show_top_stop").css({ "position": "fixed" }); jQuery("#nav_show_top_stop").css({ "top": naviga_offsetTop - scrollTop + "px" }); }
+                            }
+                            function onload_function() {
+                                naviga_offsetTop = jQuery("#nav_show_top_stop").position().top;
+                                jQuery(window).bind("scroll", naviga_stay_top); jQuery(window).bind("mousewheel", naviga_stay_top);
+                                jQuery(document).bind("scroll", naviga_stay_top); jQuery(document).bind("mousewheel", naviga_stay_top);
+                            } jQuery(document).ready(onload_function);
+                        }, 200);
+
+                    </script>
+                   <script type="text/javascript">
+                       /*PC端-博客内容页左侧Button-250*250，创建于2016-08-15*/
+                       (window.cproArray = window.cproArray || []).push({ id: "u2734133" });
+</script>
+<script type="text/javascript" src="http://cpro.baidustatic.com/cpro/ui/c.js"></script>
+<script type="text/javascript">
+    (window.cproArray = window.cproArray || []).push({ id: "u3031286" });
+</script>
+<script type="text/javascript" src="http://cpro.baidustatic.com/cpro/ui/c.js"></script>
+
+           </div>   
+
+            <div class="clear">
+            </div>
+        </div>
+
+        
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="http://passport.csdn.net/content/loginbox/login.js"></script>
+<script type="text/javascript">
+    $(function () {
+        function __get_code_toolbar(snippet_id) {
+            return $("<span class='tracking-ad' data-mod='popu_167'><a href='https://code.csdn.net/snippets/"
+                    + snippet_id
+                    + "' target='_blank' title='在CODE上查看代码片'  style='text-indent:0;'><img src='https://code.csdn.net/assets/CODE_ico.png' width=12 height=12 alt='在CODE上查看代码片' style='position:relative;top:1px;left:2px;'/></a></span>"
+                    + "<span class='tracking-ad' data-mod='popu_170'><a href='https://code.csdn.net/snippets/"
+                    + snippet_id
+                    + "/fork' target='_blank' title='派生到我的代码片' style='text-indent:0;'><img src='https://code.csdn.net/assets/ico_fork.svg' width=12 height=12 alt='派生到我的代码片' style='position:relative;top:2px;left:2px;'/></a></span>");
+        }
+        
+        $("[code_snippet_id]").each(function () {
+            __s_id = $(this).attr("code_snippet_id");
+            if (__s_id != null && __s_id != "" && __s_id != 0 && parseInt(__s_id) > 70020) {
+                __code_tool = __get_code_toolbar(__s_id);
+                $(this).prev().find(".tools").append(__code_tool);
+            }
+        });
+
+        $(".bar").show();
+    });
+</script>
+
+
+
+
+
+    </div>
+      <!--new top-->
+    
+
+     
+
+   
+   
+     <!--new top-->
+   
+   
+
+    
+    
+    
+   
+
+   
+
+
+       <script type="text/javascript" src="http://static.blog.csdn.net/public/res/bower-libs/MathJax/MathJax.js?config=TeX-AMS_HTML"></script>
+          <script type="text/javascript">
+              //$(function () {
+              //    setTimeout(function () {
+              //        var searchtitletags = articletitle + ',' + $("#tags").html();
+              //        searchService({
+              //            index: 'blog',
+              //            query: searchtitletags,
+              //            from: 5,
+              //            size: 5,
+              //            appendTo: '#res',
+              //            url: 'recommend',
+              //            his: 2,
+              //            client: "blog_cf_enhance",
+              //            tmpl: '<dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px;"><a href="#{ url }" title="#{ title }" strategy="#{ strategy }">#{ title }</a></dd>'
+              //        });
+              //    }, 1000);
+              //});
+
+         </script>
+    
+    <script src="http://static.blog.csdn.net/scripts/csdn_blog_detail.min.js" type="text/javascript"></script>
+        
+    <script type="text/javascript" src="http://c.csdnimg.cn/blog/csdn_public_blog_detail.min.js?20170719001"></script>
+
+    <script type="text/javascript" src="http://medal.blog.csdn.net/showblogmedal.ashx?blogid=4879583"></script>
+
+     
+    
+
+
+  <div id="a52b5334d" style="width: 1px; height: 1px; display: none;">
+                    <script id="adJs52b5334"></script>
+                    <script>document.getElementById("adJs52b5334").src = "http://ads.csdn.net/js/opt/52b5334.js?t=" + Math.random();</script>
+   </div>
+
+    
+    
+        
+     
+
+    
+          
+    <div class="pop_CA_cover"  style="display:none"></div>
+    <div class="pop pop_CA"  style="display:none">
+          <div class="CA_header">
+            收藏助手
+            <span class="cancel_icon"  id="fapancle"  onclick="$('.pop_CA').hide();$('.pop_CA_cover').hide();"></span>
+          </div>
+          <iframe src="" id="fa" frameborder="0" width="100%" height="360"  scrolling="no" ></iframe>
+    </div>
+
+
+        <script type="text/javascript">
+
+            $(function () {
+                var fromjs = $("#fromjs");
+                if (fromjs.length > 0) {
+                    $("#fromjs .markdown_views pre").addClass("prettyprint");
+                    prettyPrint();
+
+                    $('pre.prettyprint code').each(function () {
+                        var lines = $(this).text().split('\n').length;
+                        var $numbering = $('<ul/>').addClass('pre-numbering').hide();
+                        $(this).addClass('has-numbering').parent().append($numbering);
+                        for (i = 1; i <= lines; i++) {
+                            $numbering.append($('<li/>').text(i));
+                        };
+                        $numbering.fadeIn(1700);
+                    });
+
+                    $('.pre-numbering li').css("color", "#999");
+                }
+            });
+
+            $(".markdown_views a[target!='_blank']").attr("target", "_blank");
+
+            //$(".toc a[target='_blank']").attr("target", "");
+
+            setTimeout(function () {
+                $(".toc a[target='_blank']").attr("target", "");
+            }, 500);
+
+        </script>
+    
+</body>
+</html>   
