@@ -1,0 +1,29 @@
+echarts图表点击事件之跳转页面和加载页面
+ 下图显示四个条形图，点击条形图就跳转到其页面，这说明您要判断你点了那个条形图。
+
+echarts给了它点击事件 写法，我们只要模仿就行，代码如下：
+[javascript] view plain copy
+//echarts图表点击跳转  
+                myChart.on('click', function (param){  
+                    var name=param.name;  
+                    if(name=="用户数"){  
+                        window.location.href="${base}/admin/user/list.htm";  
+                    }else if(name=="栏目数"){  
+                        window.location.href="${base}/admin/classify/list.htm";  
+                    }else if(name=="新闻数"){  
+                        window.location.href="${base}/admin/news/list.htm";  
+                   }else{  
+                    window.location.href="${base}/admin/file/list.htm";  
+                   }                      
+                });  
+                myChart.on('click',eConsole);  
+第二个问题就是跳转页面的问题，有三种方式：
+window.location.href="${base}/admin/file/list.htm";  
+parent.location.href="${base}/admin/file/list.htm";  
+top.location.href="${base}/admin/file/list.htm";  
+
+这三个的区别用如下图解释：
+
+使用window跳转页面，只是区域一跳转了显示您要调到的页面，其他区域发生变化；
+使用parent跳转页面，区域二跳转显示您要跳到的页面；
+使用top跳转页面，区域三全部跳转到您要调到的页面，整个页面刷新。
